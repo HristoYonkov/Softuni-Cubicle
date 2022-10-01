@@ -1,7 +1,7 @@
 const fs = require('fs/promises');
 const cubes = require('../db.json');
 
-exports.getOne = (cubeId) => cubes[cubeId];
+exports.getOne = (cubeId) => cubes.find(x => x.id == cubeId);
 
 exports.getAll = (search = '', fromImput, toInput) => {
     const from = Number(fromImput) || 0;
