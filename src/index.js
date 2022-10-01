@@ -5,6 +5,8 @@ const app = express();
 
 app.use('/', express.static('./src/public')); // Middleware wich will look for static files!!!...
 
+app.use(express.urlencoded({extended: false}));
+
 app.engine('hbs', hbs.engine({
     extname: 'hbs'
 }));

@@ -18,5 +18,11 @@
         "name": "Megaminx",
         "difficultyLevel": 3,
         "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61HpQqVQ37L._SY355_.jpg"
+    },
+    {
+        "name": "rob",
+        "description": "sdas",
+        "imageUrl": "dsadasd",
+        "difficultyLevel": "1"
     }
 ]
