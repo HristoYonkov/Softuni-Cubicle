@@ -9,4 +9,3 @@ router.use('/', homeController);
 router.use('/cube', cubeController);
 
 module.exports = router;
-
