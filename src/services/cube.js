@@ -1,23 +1,21 @@
 const fs = require('fs/promises');
-const cubes = require('../db.json');
+const Cube = require('../models/cube');
 
-exports.getOne = (cubeId) => cubes.find(x => x.id == cubeId);
+
+exports.getOne = (cubeId) => Cube.findById(cubeId).lean();
+
 
 exports.getAll = (search = '', fromImput, toInput) => {
-    const from = Number(fromImput) || 0;
-    const to = Number(toInput) || 6;
+    // const from = Number(fromImput) || 0;
+    // const to = Number(toInput) || 6;
 
-    const result = cubes
-    .filter(x => x.name.toLowerCase().includes(search.toLowerCase()))
-    .filter(x => x.difficultyLevel >= from && x.difficultyLevel <= to)
+    // const result = cubes
+    // .filter(x => x.name.toLowerCase().includes(search.toLowerCase()))
+    // .filter(x => x.difficultyLevel >= from && x.difficultyLevel <= to)
 
-    return result;
+    let cubes = Cube.find().lean();
+
+    return cubes;
 };
 
-exports.save = (cube) => {
-    cubes.push({id: cubes[cubes.length - 1].id + 1, ...cube});
-
-    let textData = JSON.stringify(cubes, '', 4);
-    
-    return fs.writeFile('./src/db.json', textData, {encoding: 'utf-8'});
-}
+exports.create = (cube) => Cube.create(cube);

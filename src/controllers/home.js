@@ -5,10 +5,10 @@ const cubeService = require('../services/cube')
 //     res.render('index', { cubes });
 // };
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     let { search, from, to } = req.query;
 
-    const cubes = cubeService.getAll(search, from, to);
+    const cubes = await cubeService.getAll(search, from, to);
 
     res.render('index', { cubes, search, from, to });
 });
