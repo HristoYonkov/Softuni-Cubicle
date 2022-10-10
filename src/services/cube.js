@@ -1,8 +1,8 @@
-const fs = require('fs/promises');
 const Cube = require('../models/cube');
+//const fs = require('fs/promises');
 
 
-exports.getOne = (cubeId) => Cube.findById(cubeId).lean();
+exports.getOne = (cubeId) => Cube.findById(cubeId);
 
 
 exports.getAll = (search = '', fromImput, toInput) => {
@@ -13,7 +13,7 @@ exports.getAll = (search = '', fromImput, toInput) => {
     // .filter(x => x.name.toLowerCase().includes(search.toLowerCase()))
     // .filter(x => x.difficultyLevel >= from && x.difficultyLevel <= to)
 
-    let cubes = Cube.find().lean();
+    let cubes = Cube.find();
 
     return cubes;
 };
