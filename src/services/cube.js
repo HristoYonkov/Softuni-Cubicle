@@ -2,6 +2,7 @@ const Cube = require('../models/cube');
 //const fs = require('fs/promises');
 
 
+exports.getOneDetailed = (cubeId) => Cube.findById(cubeId)
 exports.getOne = (cubeId) => Cube.findById(cubeId).populate('accessories'); //.populate('cubes')
 // Nested population
 

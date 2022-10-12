@@ -21,8 +21,8 @@ router.post('/create', async (req, res) => {
 });
 
 router.get('/attach/:id', async (req, res) => {
-    const cube = await cubeService.getOne(req.params.id).lean();
-    const accessories = await accessoryService.getAll().lean();
+    const cube = await cubeService.getOneDetailed(req.params.id).lean();
+    const accessories = await accessoryService.getAllWithout(cube.accessories).lean();
     
     res.render('accessoryes/attach', { cube, accessories });
 });
