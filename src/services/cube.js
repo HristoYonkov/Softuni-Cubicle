@@ -2,8 +2,11 @@ const Cube = require('../models/cube');
 //const fs = require('fs/promises');
 
 
-exports.getOneDetailed = (cubeId) => Cube.findById(cubeId)
+exports.getOneDetailed = (cubeId) => Cube.findById(cubeId);
+
+exports.edit = (id, data) => Cube.findByIdAndUpdate(id, data, {runValidators: true});
 exports.getOne = (cubeId) => Cube.findById(cubeId).populate('accessories'); //.populate('cubes')
+exports.delete = (cubeId) => Cube.findByIdAndDelete(cubeId);
 // Nested population
 
 // .populate({
@@ -13,7 +16,6 @@ exports.getOne = (cubeId) => Cube.findById(cubeId).populate('accessories'); //.p
 //         model: 'Cube'
 //     }
 // });
-
 
 exports.getAll = async (search = '', fromImput, toInput) => {
 

@@ -47,7 +47,7 @@ exports.login = async ({username, password}) => {
             if (err) {
                 reject(err);
             }
-            console.log(token);
+            
             resolve(token);
         });
     })
